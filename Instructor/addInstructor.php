@@ -15,7 +15,7 @@ include("../connections/connection.php");
         <div class="header">Room Management System</div>
             <nav>
                 <ul>
-                    <li><a href="../index.html">Search</a></li>
+                    <li><a href="../index.php">Search</a></li>
                     <li><a href="#">Rooms</a></li>
                 </ul>
             </nav>

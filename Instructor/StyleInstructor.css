@@ -81,7 +81,6 @@ input:focus{
 .details{
 	margin: 0 20px;
     height: 80px;
-
 }
 .search-btn-box-instructor button{
     float: right;
@@ -94,3 +93,4 @@ input:focus{
     font-size: 15px;
     cursor: pointer;
 }
+

@@ -1,60 +1,79 @@
 <?php
 include("connections/connection.php");
-$searchResult1 = $searchResult ="";
+$searchResult1 = $searchResult = $errormsg ="";
 if (isset($_POST['searchButton'])) {
     $searchTermID = $_POST['searchTermID'];
-
+	$searchTermFname = $_POST['searchTermFname'];
+	$searchTermLname = $_POST['searchTermLname'];
 
     // SQL query
-    $sql = "SELECT * FROM instructor WHERE instructor_id LIKE '%$searchTermID%'
-	 ";
+    $sql = "SELECT
+		instructor.instructor_id,
+		instructor.firstname,
+		instructor.lastname,
+		instructor_startend_date.startDate,
+		instructor_startend_date.endDate
+    FROM
+        instructor
+    INNER JOIN
+        instructor_startend_date 
+	ON
+	    instructor.instructor_id = instructor_startend_date.instructorDate_id
+    WHERE
+        instructor.instructor_id = '$searchTermID'
+	OR
+	    instructor.firstname = '$searchTermFname'
+	OR
+	    instructor.lastname = '$searchTermLname'
+	";
 
-    // Execute the query
     $result = $connections->query($sql);
 
     if ($result) {
-        // Check if there are any results
         if ($result->num_rows > 0) {
-			$searchResult1 .= `
-				`;
+			$searchResult .='
+				<div class="Table-container">
+					<table id="table">
+				        <tr id="firstTr">
+							<td></td>
+							<td>Instructor ID</td>
+							<td>Fisrtname</td>
+							<td>Lastname</td>
+							<td>Start date</td>
+							<td>End date</td>
+							<td></td>
+				        </tr>';
             while ($row = $result->fetch_assoc()) {
 				$searchResult .='
-				<tr id="firstTr">
-					<td></td>
-					<td>Instructor ID</td>
-					<td>Fisrtname</td>
-					<td>Lastname</td>
-					<td>Start date</td>
-					<td>End date</td>
-					<td>Status</td>
-					<td></td>
-				</tr>
-				<tr>
-				  <td><i class="bx bx-chevron-right"></i></td>
-				  <td>'.$row["instructor_id"].'</td>
-				  <td>'.$row["firstname"].'</td>
-				  <td>'.$row["lastname"].'</td>
-
-				</tr>'; 
-				
+						<tr>
+							<td><div class="div-bx-chevron-right"><i class="bx bx-chevron-right"></div></i></td>
+							<td>'.$row["instructor_id"].'</td>
+							<td>'.$row["firstname"].'</td>
+							<td>'.$row["lastname"].'</td>
+							<td>'.$row["startDate"].'</td>
+							<td>'.$row["endDate"].'</td>
+							<td>'."<div class='btn-div'><button class='btn-tbl'><a href='Instructor/instructorProfile.php?id=".$row['instructor_id']."'>select</a></button></div>".'</td>
+						</tr>'; 
+					echo '</table>';
+				echo '</div>';	
             }
-			echo $searchResult;
         } else {
-            echo 'No results found.';
-        }
+			$errormsg .='
+				<div class="error-msg">
+					No results found.
+				</div>'; 
+			}
     } else {
         echo 'Error: ' . $connections->error;
-    }
+     }
 }
-
-// Close the database connection
 $connections->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="styleindex.css">
+    <link rel="stylesheet" type="text/css" href="styleSearch.css">
     <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>My Self Introduction</title>
@@ -65,7 +84,7 @@ $connections->close();
 		<nav>
 			<ul>
 				<li><a href="#">Search</a></li>
-				<li><a href="#">Rooms</a></li>
+				<li><a href="rooms/roomDashboard.html">Rooms</a></li>
 			</ul>
 		</nav>
 		<div class="content">
@@ -91,13 +110,13 @@ $connections->close();
 						    <div>
 							    <label>First Name</label>
 						    </div>
-						<input type="text" name="" placeholder="Fisrtname">
+						<input type="text" name="searchTermFname" placeholder="Fisrtname">
 					    </div>
 					    <div class="details">
 						    <div>
 							    <label>Last Name</label>
 						    </div>
-						   <input type="text" name="" placeholder="Lastname">
+						   <input type="text" name="searchTermLname" placeholder="Lastname">
 					    </div>    	
 					</div>
 				</div>
@@ -106,15 +125,15 @@ $connections->close();
 				</div>
 			</form>			
 		</div><!-- end content div -->
-	<div class="filter"></div>
-		<div class="Table-container">
-			<table>
-				<?php
-				echo $searchResult1;
-				echo $searchResult;
-				?>
-			</table>
-		</div>
+	<div class="filter">
+		<?php
+			echo $errormsg;
+		?>
+	</div>
+			<?php
+			echo $searchResult;
+			?>
+			
 	</div>
 </body>
 </html>
