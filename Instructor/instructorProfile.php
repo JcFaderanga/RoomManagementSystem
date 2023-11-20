@@ -80,7 +80,7 @@ WHERE
                 <nav>
                     <ul>
                         <li><a href="../index.php">Search</a></li>
-                        <li><a href="#">Rooms</a></li>
+                        <li><a href="../rooms/roomDashboard.php">Rooms</a></li>
                     </ul>
                 </nav>
             <div class="profile">

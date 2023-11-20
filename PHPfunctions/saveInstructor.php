@@ -7,6 +7,8 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
+$strandDropdown = $_POST['strandDropdown'];
+$ = $_POST['strandDropdown'];
 }
 if($firstname && $lastname){
   $query = mysqli_query($connections, "INSERT INTO instructor(firstname,lastname) VALUES ('$firstname', '$lastname')");

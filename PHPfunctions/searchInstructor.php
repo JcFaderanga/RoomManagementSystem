@@ -1,6 +1,7 @@
 <?php
+
 include("connections/connection.php");
-$searchResult1 = $searchResult = $errormsg ="";
+$searchResult1 = $searchResult = $errormsg = $errorSearchResult = $instructorSearchResult ="";
 if (isset($_POST['searchButton'])) {
     $searchTermID = $_POST['searchTermID'];
 	$searchTermFname = $_POST['searchTermFname'];
@@ -52,17 +53,19 @@ if (isset($_POST['searchButton'])) {
 							<td>'.$row["lastname"].'</td>
 							<td>'.$row["startDate"].'</td>
 							<td>'.$row["endDate"].'</td>
-							<td><div class="btn-div"><button class="btn-tbl"><a href="#">select</a></button></div></td>
+							<td>'."<div class='btn-div'><button class='btn-tbl'><a href='Instructor/instructorProfile.php?id=".$row['instructor_id']."'>select</a></button></div>".'</td>
 						</tr>'; 
 					echo '</table>';
 				echo '</div>';	
             }
+			$instructorSearchResult = $searchResult;
         } else {
 			$errormsg .='
 				<div class="error-msg">
 					No results found.
 				</div>'; 
 			}
+			$errorSearchResult = $errormsg;
     } else {
         echo 'Error: ' . $connections->error;
      }

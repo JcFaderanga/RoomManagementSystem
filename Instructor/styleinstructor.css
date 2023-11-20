@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700&display=swap');
+:root{
+	--blue:#0e6dbd;
+	--dark-blue:#005586;
+  
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    
+}
+body{	
+	background: rgb(190, 210, 254, .13);
+}
+.container{
+	max-width: 1900px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+.header{
+	height: 70px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	font-size: 25px;
+}
+nav{
+	width: 98%;
+	height: 50px;
+	background: var(--blue);
+	margin: 0 auto;
+	border-radius: 10px;
+	color: white;
+}
+ nav ul{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+nav ul li{
+    margin: 10px;
+}
+nav ul li a{
+	color: white;
+}
+.addInstructor{
+    margin: 20px auto;
+    width: 97%;
+    height: 100px;
+    border: 1px solid rgb(0,0,0,.3);
+    border-radius: 10px;
+    background: rgb(190, 210, 254, .3);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectStrand{
+	margin: 20px auto;
+    width: 97%;
+    height: 100px;
+    border: 1px solid rgb(0,0,0,.3);
+    border-radius: 10px;
+    background: rgb(190, 210, 254, .3);
+}
+.addSubject{
+	margin: 20px auto;
+    width: 97%;
+    height: 180px;
+    border: 1px solid rgb(0,0,0,.3);
+    border-radius: 10px;
+    background: rgb(190, 210, 254, .3);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box-instructor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Starnd-Gradelvl{
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin: 12px auto;
+	width: 1162px;
+}
+ input{
+	height: 32px;
+	width: 250px;
+	border-radius: 5px;
+	border: 1px solid rgb(0,0,0,.3);
+	outline: none;
+	box-shadow: rgba(225,228,232,0.5) 1px 0 0 inset;
+	padding: 10px;
+}
+input:focus{
+	box-shadow: rgba(3,102,214,0.3) 0 0 0 3px;
+}
+.details{
+	margin: 0 20px;
+    height: 80px;
+}
+.search-btn-box-instructor button{
+    float: right;
+    margin: 0 20px;
+    padding: 1px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    background: var(--blue);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+#subjectDropdown, #courseDropdown, #gradeDropdown{
+	height: 32px;
+	width: 540px;
+	border-radius: 5px;
+	padding-left: 10px;
+	border: 1px solid rgb(0,0,0,.3);
+	outline: none;
+	box-shadow: rgba(225,228,232,0.5) 1px 0 0 inset;
+}
+#courseDropdown, #gradeDropdown{
+	width: 250px !important;
+}
+#subjectDropdown option, #courseDropdown option,  #gradeDropdown option{
+	font-size: 15px;
+	background-color: #f8f8f8;
+	color: #333;
+	padding: 10px;
+	line-height: 10;
+	margin: 10px;
+}
+
