@@ -6,7 +6,7 @@ require_once "PHPfunctions/searchInstructor.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="StyleSearch.css">
+    <link rel="stylesheet" type="text/css" href="stylesearch.css">
     <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>My Self Introduction</title>
@@ -59,8 +59,9 @@ require_once "PHPfunctions/searchInstructor.php";
 			</form>			
 		</div><!-- end content div -->
 		<div class="filter">
-		    <?php echo $errorSearchResult; ?>
+		    
 	    </div>
+		<?php echo $errorSearchResult; ?>
 		<?php echo $instructorSearchResult; ?>
 	</div>
 </body>

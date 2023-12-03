@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700&display=swap');
+:root{
+	--blue:#0e6dbd;
+	--dark-blue:#005586;
+  
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    
+}
+body{	
+	background: rgb(190, 210, 254, .13);
+}
+.container{
+	max-width: 1900px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+.header{
+	height: 70px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	font-size: 25px;
+}
+nav{
+	width: 100%;
+	height: 50px;
+	background: var(--blue);
+	margin: 0 auto;
+	/*border-radius: 10px;*/
+	color: white;
+}
+ nav ul{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+nav ul li{
+    margin: 10px;
+}
+nav ul li a{
+	color: white;
+}
+.profile{
+    margin: 20px auto;
+    width: 90%;
+    height: auto;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(0,0,0,.2);
+    background: rgb(190, 210, 254, .2);
+    
+
+}
+.inner-container {
+    display: flex;
+    height: 100%;
+}
+.profile-info{
+    width: 95%;
+	margin: 0 20px 0 20px;
+	display: flex;
+	align-items: center;
+}
+
+.content{
+    width: 97%;
+    height: auto;
+    margin:20px auto;
+    display: flex;
+}
+.leftSide{
+    width: 25%;
+    height: 100%;
+}
+.left{
+    
+    height: auto;
+}
+.upper-left{
+    width: 90%;
+    margin: 15px auto;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.2);
+    background: rgb(190, 210, 254, .2);
+    
+}
+.subject-list{
+    width: 90%;
+    margin: 30px auto;
+    height: 250px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.2);
+    background: rgb(190, 210, 254, .2);
+    
+}
+.right{
+    width: 75%;
+    height: auto;
+}
+.table-box{
+    width: 96%;
+    margin: 15px auto;
+    height: 500px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.3);
+    background: rgb(190, 210, 254, .3);
+}
+.name-box{
+	width: 95%;
+	height: 50px;
+	margin: 20px 0 10px 20px;
+	display: flex;
+	align-items: center;
+    color: var(--dark-blue);
+    font-size: 28px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.info-box{
+    height: 100%;
+    
+}
+.details{
+    display: grid;
+    margin: 10px 10px 20px 10px;
+    color: rgb(0,0,0,.7);
+    margin-right: 80px;
+}
+.details label{
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--dark-blue);
+}

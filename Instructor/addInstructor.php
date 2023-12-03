@@ -47,10 +47,13 @@ include("../connections/connection.php");
                         <input type="date" name="endDate" placeholder="Lastname">
                     </div>  
                 </div>
+                <div class="search-btn-box-instructor">
+					<button>Save</button>
+				</div>  
             </form>
         </div>
-        <div class="selectStrand">        	
-        <form action="../PHPfunctions/saveInstructor.php" method="post">
+    <!--  <div class="selectStrand">        	
+        <form action="" method="post">
                     <div class="Starnd-Gradelvl">
                     <div class="details">
                             <div>
@@ -64,7 +67,7 @@ include("../connections/connection.php");
                             <option value="GAS">GAS</option>
                             <option value="ICT">ICT</option>
                             <option value="ICT">HE</option>
-                            <!-- Add more options as needed -->
+                             Add more options as needed 
                         </select>
                     </div>
                     <div class="details">
@@ -75,14 +78,14 @@ include("../connections/connection.php");
                             <option value="">-- NONE --</option>
                             <option value="GRADE 11">GRADE 11</option>
                             <option value="GRADE 12">GRADE 12</option>
-                            <!-- Add more options as needed -->
+                             Add more options as needed 
                         </select>
                     </div>
                     </div>    
             </form>
         </div>
         <div class="addSubject">        	
-            <form action="../PHPfunctions/saveInstructor.php" method="post">
+            <form action="" method="post">
                 <div class="input-box-instructor">
                     <div class="details">
                         <div>
@@ -100,7 +103,7 @@ include("../connections/connection.php");
                             <option value="genChem1">General Chemistry 1</option>
                             <option value="genBio1">General Biology 1</option>
                             <option value="rhgp">RHGP</option>
-                            <!-- Add more options as needed -->
+                             Add more options as needed 
                         </select>
                     </div>
   
@@ -121,7 +124,7 @@ include("../connections/connection.php");
 					<button>Save</button>
 				</div>      
             </form>
-        </div>
+        </div>-->
     </div>
 </body>
 </html>

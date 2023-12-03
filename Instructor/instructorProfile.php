@@ -71,7 +71,7 @@ WHERE
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="instructorProfile.css">
+    <link rel="stylesheet" type="text/css" href="instructorprofile.css">
     <title>Document</title>
 </head>
 <body>
@@ -83,36 +83,38 @@ WHERE
                         <li><a href="../rooms/roomDashboard.php">Rooms</a></li>
                     </ul>
                 </nav>
-            <div class="profile">
-               <div class="name-box">
-                   <span class="name-title"><?php echo $row["firstname"];echo " " ;echo $row["lastname"]; ?></span>
-               </div>
-               <div class="profile-info">
-                   <div class="info-box">
-                        <div class="details">
-                            <label>Instructor ID</label>
-                            <?php echo $row["instructor_id"]; ?>
-                        </div>
-                        <div class="details">
-                            <label>Started date effective</label>
-                            <?php echo $row["startDate"]; ?>
-                        </div>
-                        <div class="details">
-                            <label>End date effective</label>
-                            <?php echo $row["endDate"]; ?>
-                        </div>
-                   </div>
-               </div>
-            </div>
-            <div class="content">
-                <div class="left">
-                    <div class="upper-left">
-
+            <div class="inner-container">
+            <div class="leftSide">
+                <div class="profile">
+                    <div class="name-box">
+                        <span class="name-title"><?php echo $row["firstname"];echo " " ;echo $row["lastname"]; ?></span>
                     </div>
-                    <div class="subject-list">
-
-                    </div>
+                        <div class="profile-info">
+                            <div class="info-box">
+                                    <div class="details">
+                                        <label>Instructor ID</label>
+                                        <?php echo $row["instructor_id"]; ?>
+                                    </div>
+                                    <div class="details">
+                                        <label>Started date effective</label>
+                                        <?php echo $row["startDate"]; ?>
+                                    </div>
+                                    <div class="details">
+                                        <label>End date effective</label>
+                                        <?php echo $row["endDate"]; ?>
+                                    </div>
+                            </div>
+                        </div>      
                 </div>
+                <div class="left">
+                            <div class="upper-left">
+
+                            </div>
+                            <div class="subject-list">
+
+                            </div>
+                        </div>
+            </div>
                 <div class="right">
                     <div class="table-box">
                         <div class="filters">
@@ -124,6 +126,7 @@ WHERE
                     </div>
                 </div>
             </div>
+            
     </div>
 </body>
 </html>
