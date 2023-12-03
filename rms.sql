@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2023 at 02:16 AM
+-- Generation Time: Dec 03, 2023 at 11:33 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `rms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abm_subjects`
+--
+
+CREATE TABLE `abm_subjects` (
+  `abm_Sub_ID` int(11) NOT NULL,
+  `Section_ID` int(11) NOT NULL,
+  `sub_instructor_Id` int(11) NOT NULL,
+  `abm_Subject` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `abm_subjects`
+--
+
+INSERT INTO `abm_subjects` (`abm_Sub_ID`, `Section_ID`, `sub_instructor_Id`, `abm_Subject`) VALUES
+(1001, 0, 0, 'Culminating Activity/Rese'),
+(1002, 0, 0, 'Pilipino sa Piling Larang'),
+(1003, 0, 0, 'Business Ethics and Socia'),
+(1004, 0, 0, '21st Century Literature'),
+(1005, 0, 0, 'Inquiries, Investigation ');
 
 -- --------------------------------------------------------
 
@@ -48,7 +72,7 @@ INSERT INTO `grade_level` (`grade_level_ID`, `grade_level`) VALUES
 
 CREATE TABLE `instructor` (
   `instructor_id` int(10) NOT NULL,
-  `room_number` int(11) NOT NULL,
+  `subjects` varchar(11) NOT NULL,
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -57,14 +81,17 @@ CREATE TABLE `instructor` (
 -- Dumping data for table `instructor`
 --
 
-INSERT INTO `instructor` (`instructor_id`, `room_number`, `firstname`, `lastname`) VALUES
-(924511610, 0, 'Yes', 'no'),
-(924511611, 0, 'Kyrah', 'pangilinan'),
-(924511612, 0, 'jc', 'faderanga'),
-(924511613, 0, 'mary grace', 'santarin'),
-(924511614, 0, 'Kyrah', 'pangilinan'),
-(924511615, 0, 'Kyrah', 'faderanga'),
-(924511616, 0, 'julius', 'loresca');
+INSERT INTO `instructor` (`instructor_id`, `subjects`, `firstname`, `lastname`) VALUES
+(924511601, '0', 'Janrey Cyril', 'Faderanga'),
+(924511602, '0', 'Kyrah', 'pangilinan'),
+(924511603, '0', 'Janrey Cyril', 'Faderanga'),
+(924511604, '0', 'Jaspher ', 'Cabanero'),
+(924511605, '0', 'Julius', 'Loresca'),
+(924511606, '0', 'Jc', 'Faderanga'),
+(924511607, '0', 'mary grace', 'Santarin'),
+(924511608, '0', 'Rhaiza', 'Maneclang'),
+(924511609, '0', 'Jaspher ', 'Cabanero'),
+(924511610, '', 'abc', '123');
 
 -- --------------------------------------------------------
 
@@ -83,16 +110,16 @@ CREATE TABLE `instructor_startend_date` (
 --
 
 INSERT INTO `instructor_startend_date` (`instructorDate_id`, `startDate`, `endDate`) VALUES
-(924511610, '2023-11-01', '2023-11-30'),
-(924511611, '2023-11-01', '2023-11-30'),
-(924511612, '2023-12-01', '2023-12-31'),
-(924511613, '2023-11-08', '2023-11-30'),
-(924511614, '2023-11-01', '2023-11-11'),
-(924511615, '2024-01-01', '2024-12-31'),
-(924511616, '0000-00-00', '0000-00-00'),
-(924511617, '0000-00-00', '0000-00-00'),
-(924511618, '2000-02-01', '2023-01-02'),
-(924511619, '0000-00-00', '0000-00-00');
+(1, '2023-11-01', '2023-11-30'),
+(924511602, '2023-11-01', '2023-11-30'),
+(924511603, '2023-11-01', '2023-12-31'),
+(924511604, '2024-01-01', '2024-01-31'),
+(924511605, '2023-11-01', '2023-11-30'),
+(924511606, '2023-07-01', '2023-11-30'),
+(924511607, '2023-11-01', '2023-11-30'),
+(924511608, '2023-11-01', '2023-11-30'),
+(924511609, '2023-12-01', '2023-12-31'),
+(924511610, '2023-12-01', '2023-12-31');
 
 -- --------------------------------------------------------
 
@@ -139,65 +166,21 @@ INSERT INTO `room_status` (`status_ID`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stem`
---
-
-CREATE TABLE `stem` (
-  `room_ID` int(11) NOT NULL,
-  `strand_code_ID` varchar(20) NOT NULL,
-  `room_floor_ID` int(11) NOT NULL,
-  `room_status_ID` int(11) NOT NULL,
-  `room_number` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `stem`
---
-
-INSERT INTO `stem` (`room_ID`, `strand_code_ID`, `room_floor_ID`, `room_status_ID`, `room_number`) VALUES
-(101, 'SC99000STEM', 1, 0, 1101),
-(102, 'SC99000STEM', 0, 0, 1102),
-(103, 'SC99000STEM', 0, 0, 1103),
-(104, 'SC99000STEM', 0, 0, 1104),
-(105, 'SC99000STEM', 0, 0, 1105),
-(106, 'SC99000STEM', 0, 0, 1106),
-(107, 'SC99000STEM', 0, 0, 1107),
-(108, 'SC99000STEM', 0, 0, 1108),
-(109, 'SC99000STEM', 0, 0, 1109),
-(110, 'SC99000STEM', 0, 0, 1110),
-(111, 'SC99000STEM', 0, 0, 1111),
-(112, 'SC99000STEM', 0, 0, 1112),
-(113, 'SC99000STEM', 0, 0, 1201),
-(114, 'SC99000STEM', 0, 0, 1202),
-(115, 'SC99000STEM', 0, 0, 1203),
-(116, 'SC99000STEM', 0, 0, 1204),
-(117, 'SC99000STEM', 0, 0, 1205),
-(118, 'SC99000STEM', 0, 0, 1206),
-(119, 'SC99000STEM', 0, 0, 1207),
-(120, 'SC99000STEM', 0, 0, 1208),
-(121, 'SC99000STEM', 0, 0, 1209),
-(122, 'SC99000STEM', 0, 0, 1210),
-(123, 'SC99000STEM', 0, 0, 1211),
-(124, 'SC99000STEM', 0, 0, 1212);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `stem_subjects`
 --
 
 CREATE TABLE `stem_subjects` (
-  `Stem_Sub_ID` int(11) NOT NULL,
+  `sub_ID` int(11) NOT NULL,
   `Section_ID` int(11) NOT NULL,
   `sub_instructor_id` int(11) NOT NULL,
-  `Stem_Subject` varchar(255) NOT NULL
+  `Subjects_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `stem_subjects`
 --
 
-INSERT INTO `stem_subjects` (`Stem_Sub_ID`, `Section_ID`, `sub_instructor_id`, `Stem_Subject`) VALUES
+INSERT INTO `stem_subjects` (`sub_ID`, `Section_ID`, `sub_instructor_id`, `Subjects_name`) VALUES
 (1000, 0, 0, 'Oral Communication'),
 (1001, 0, 0, 'Komunikasyon at Pananaliksik sa wika at kulturang pilipino\r\n'),
 (1002, 0, 0, 'General Mathematics'),
@@ -226,14 +209,199 @@ CREATE TABLE `strands` (
 INSERT INTO `strands` (`strand_code`, `strand_name`) VALUES
 ('SC99000ABM', 'ABM'),
 ('SC99000ADAS', 'ADAS'),
-('SC99000STEM', 'STEM'),
-('SC9900GAS', 'GAS'),
-('SC9900HE', 'HE'),
-('SC9900ICT', 'ICT');
+('SC99000GAS', 'GAS'),
+('SC99000HE', 'HE'),
+('SC99000ICT', 'ICT'),
+('SC99000STEM', 'STEM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `strand_room_details`
+--
+
+CREATE TABLE `strand_room_details` (
+  `room_ID` int(11) NOT NULL,
+  `strand_code_ID` varchar(20) NOT NULL,
+  `grade_lvl_ID` int(11) NOT NULL,
+  `room_floor_ID` int(11) NOT NULL,
+  `room_status_ID` int(11) NOT NULL,
+  `room_number` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `strand_room_details`
+--
+
+INSERT INTO `strand_room_details` (`room_ID`, `strand_code_ID`, `grade_lvl_ID`, `room_floor_ID`, `room_status_ID`, `room_number`) VALUES
+(1, 'SC99000ABM', 11, 3, 1, 1101),
+(2, 'SC99000ABM', 11, 2, 0, 1102),
+(3, 'SC99000ABM', 11, 3, 0, 1103),
+(4, 'SC99000ABM', 11, 3, 0, 1104),
+(5, 'SC99000ABM', 11, 3, 0, 1105),
+(6, 'SC99000ABM', 11, 1, 0, 1106),
+(7, 'SC99000ABM', 11, 1, 0, 1107),
+(8, 'SC99000ABM', 11, 4, 0, 1108),
+(9, 'SC99000ABM', 11, 1, 0, 1109),
+(10, 'SC99000ABM', 11, 3, 0, 1110),
+(11, 'SC99000ABM', 11, 1, 0, 1111),
+(12, 'SC99000ABM', 11, 1, 0, 1112),
+(13, 'SC99000ABM', 12, 1, 0, 1201),
+(14, 'SC99000ABM', 12, 3, 0, 1202),
+(15, 'SC99000ABM', 12, 2, 0, 1203),
+(16, 'SC99000ABM', 12, 4, 0, 1204),
+(17, 'SC99000ABM', 12, 1, 0, 1205),
+(18, 'SC99000ABM', 12, 1, 0, 1206),
+(19, 'SC99000ABM', 12, 1, 0, 1207),
+(20, 'SC99000ABM', 12, 4, 0, 1208),
+(21, 'SC99000ABM', 12, 2, 0, 1209),
+(22, 'SC99000ABM', 12, 3, 0, 1210),
+(23, 'SC99000ABM', 12, 3, 0, 1211),
+(24, 'SC99000ABM', 12, 2, 0, 1212),
+(25, 'SC99000ADAS', 11, 3, 0, 1101),
+(26, 'SC99000ADAS', 11, 2, 0, 1102),
+(27, 'SC99000ADAS', 11, 3, 0, 1103),
+(28, 'SC99000ADAS', 11, 3, 0, 1104),
+(29, 'SC99000ADAS', 11, 3, 0, 1105),
+(30, 'SC99000ADAS', 11, 1, 0, 1106),
+(31, 'SC99000ADAS', 11, 1, 0, 1107),
+(32, 'SC99000ADAS', 11, 4, 0, 1108),
+(33, 'SC99000ADAS', 11, 1, 0, 1109),
+(34, 'SC99000ADAS', 11, 3, 0, 1110),
+(35, 'SC99000ADAS', 11, 1, 0, 1111),
+(36, 'SC99000ADAS', 11, 1, 0, 1112),
+(37, 'SC99000ADAS', 12, 1, 0, 1201),
+(38, 'SC99000ADAS', 12, 3, 0, 1202),
+(39, 'SC99000ADAS', 12, 2, 0, 1203),
+(40, 'SC99000ADAS', 12, 4, 0, 1204),
+(41, 'SC99000ADAS', 12, 1, 0, 1205),
+(42, 'SC99000ADAS', 12, 1, 0, 1206),
+(43, 'SC99000ADAS', 12, 1, 0, 1207),
+(44, 'SC99000ADAS', 12, 4, 0, 1208),
+(45, 'SC99000ADAS', 12, 2, 0, 1209),
+(46, 'SC99000ADAS', 12, 3, 0, 1210),
+(47, 'SC99000ADAS', 12, 3, 0, 1211),
+(48, 'SC99000ADAS', 12, 2, 0, 1212),
+(49, 'SC99000ICT', 11, 3, 0, 1101),
+(50, 'SC99000ICT', 11, 2, 0, 1102),
+(51, 'SC99000ICT', 11, 3, 0, 1103),
+(52, 'SC99000ICT', 11, 3, 0, 1104),
+(53, 'SC99000ICT', 11, 3, 0, 1105),
+(54, 'SC99000ICT', 11, 1, 0, 1106),
+(55, 'SC99000ICT', 11, 1, 0, 1107),
+(56, 'SC99000ICT', 11, 4, 0, 1108),
+(57, 'SC99000ICT', 11, 1, 0, 1109),
+(58, 'SC99000ICT', 11, 3, 0, 1110),
+(59, 'SC99000ICT', 11, 1, 0, 1111),
+(60, 'SC99000ICT', 11, 1, 0, 1112),
+(61, 'SC99000ICT', 12, 1, 0, 1201),
+(62, 'SC99000ICT', 12, 3, 0, 1202),
+(63, 'SC99000ICT', 12, 2, 0, 1203),
+(64, 'SC99000ICT', 12, 4, 0, 1204),
+(65, 'SC99000ICT', 12, 1, 0, 1205),
+(66, 'SC99000ICT', 12, 1, 0, 1206),
+(67, 'SC99000ICT', 12, 1, 0, 1207),
+(68, 'SC99000ICT', 12, 4, 0, 1208),
+(69, 'SC99000ICT', 12, 2, 0, 1209),
+(70, 'SC99000ICT', 12, 3, 0, 1210),
+(71, 'SC99000ICT', 12, 3, 0, 1211),
+(72, 'SC99000ICT', 12, 2, 0, 1212),
+(73, 'SC99000STEM', 11, 3, 0, 1101),
+(74, 'SC99000STEM', 11, 2, 0, 1102),
+(75, 'SC99000STEM', 11, 3, 0, 1103),
+(76, 'SC99000STEM', 11, 3, 0, 1104),
+(77, 'SC99000STEM', 11, 3, 0, 1105),
+(78, 'SC99000STEM', 11, 1, 0, 1106),
+(79, 'SC99000STEM', 11, 1, 0, 1107),
+(80, 'SC99000STEM', 11, 4, 0, 1108),
+(81, 'SC99000STEM', 11, 1, 0, 1109),
+(82, 'SC99000STEM', 11, 3, 0, 1110),
+(83, 'SC99000STEM', 11, 1, 0, 1111),
+(84, 'SC99000STEM', 11, 1, 0, 1112),
+(85, 'SC99000STEM', 12, 1, 0, 1201),
+(86, 'SC99000STEM', 12, 3, 0, 1202),
+(87, 'SC99000STEM', 12, 2, 0, 1203),
+(88, 'SC99000STEM', 12, 4, 0, 1204),
+(89, 'SC99000STEM', 12, 1, 0, 1205),
+(90, 'SC99000STEM', 12, 1, 0, 1206),
+(91, 'SC99000STEM', 12, 1, 0, 1207),
+(92, 'SC99000STEM', 12, 4, 0, 1208),
+(93, 'SC99000STEM', 12, 2, 0, 1209),
+(94, 'SC99000STEM', 12, 3, 0, 1210),
+(95, 'SC99000STEM', 12, 3, 0, 1211),
+(96, 'SC99000STEM', 12, 2, 0, 1212),
+(97, 'SC99000GAS', 11, 3, 0, 1101),
+(98, 'SC99000GAS', 11, 2, 0, 1102),
+(99, 'SC99000GAS', 11, 3, 0, 1103),
+(100, 'SC99000GAS', 11, 3, 0, 1104),
+(101, 'SC99000GAS', 11, 3, 0, 1105),
+(102, 'SC99000GAS', 11, 1, 0, 1106),
+(103, 'SC99000GAS', 11, 1, 0, 1107),
+(104, 'SC99000GAS', 11, 4, 0, 1108),
+(105, 'SC99000GAS', 11, 1, 0, 1109),
+(106, 'SC99000GAS', 11, 3, 0, 1110),
+(107, 'SC99000GAS', 11, 1, 0, 1111),
+(108, 'SC99000GAS', 11, 1, 0, 1112),
+(109, 'SC99000GAS', 12, 1, 0, 1201),
+(110, 'SC99000GAS', 12, 3, 0, 1202),
+(111, 'SC99000GAS', 12, 2, 0, 1203),
+(112, 'SC99000GAS', 12, 4, 0, 1204),
+(113, 'SC99000GAS', 12, 1, 0, 1205),
+(114, 'SC99000GAS', 12, 1, 0, 1206),
+(115, 'SC99000GAS', 12, 1, 0, 1207),
+(116, 'SC99000GAS', 12, 4, 0, 1208),
+(117, 'SC99000GAS', 12, 2, 0, 1209),
+(118, 'SC99000GAS', 12, 3, 0, 1210),
+(119, 'SC99000GAS', 12, 3, 0, 1211),
+(120, 'SC99000GAS', 12, 2, 0, 1212),
+(121, 'SC99000HE', 11, 3, 0, 1101),
+(122, 'SC99000HE', 11, 2, 0, 1102),
+(123, 'SC99000HE', 11, 3, 0, 1103),
+(124, 'SC99000HE', 11, 3, 0, 1104),
+(125, 'SC99000HE', 11, 3, 0, 1105),
+(126, 'SC99000HE', 11, 1, 0, 1106),
+(127, 'SC99000HE', 11, 1, 0, 1107),
+(128, 'SC99000HE', 11, 4, 0, 1108),
+(129, 'SC99000HE', 11, 1, 0, 1109),
+(130, 'SC99000HE', 11, 3, 0, 1110),
+(131, 'SC99000HE', 11, 1, 0, 1111),
+(132, 'SC99000HE', 11, 1, 0, 1112),
+(133, 'SC99000HE', 12, 1, 0, 1201),
+(134, 'SC99000HE', 12, 3, 0, 1202),
+(135, 'SC99000HE', 12, 2, 0, 1203),
+(136, 'SC99000HE', 12, 4, 0, 1204),
+(137, 'SC99000HE', 12, 1, 0, 1205),
+(138, 'SC99000HE', 12, 1, 0, 1206),
+(139, 'SC99000HE', 12, 1, 0, 1207),
+(140, 'SC99000HE', 12, 4, 0, 1208),
+(141, 'SC99000HE', 12, 2, 0, 1209),
+(142, 'SC99000HE', 12, 3, 0, 1210),
+(143, 'SC99000HE', 12, 3, 0, 1211),
+(144, 'SC99000HE', 12, 2, 0, 1212);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `subject_id` int(11) NOT NULL,
+  `strand_code_ID` int(11) NOT NULL,
+  `grade_level_ID` int(11) NOT NULL,
+  `subject_code` int(11) NOT NULL,
+  `subject_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `abm_subjects`
+--
+ALTER TABLE `abm_subjects`
+  ADD PRIMARY KEY (`abm_Sub_ID`);
 
 --
 -- Indexes for table `grade_level`
@@ -266,16 +434,10 @@ ALTER TABLE `room_status`
   ADD PRIMARY KEY (`status_ID`);
 
 --
--- Indexes for table `stem`
---
-ALTER TABLE `stem`
-  ADD PRIMARY KEY (`room_ID`);
-
---
 -- Indexes for table `stem_subjects`
 --
 ALTER TABLE `stem_subjects`
-  ADD PRIMARY KEY (`Stem_Sub_ID`);
+  ADD PRIMARY KEY (`sub_ID`);
 
 --
 -- Indexes for table `strands`
@@ -284,8 +446,20 @@ ALTER TABLE `strands`
   ADD PRIMARY KEY (`strand_code`);
 
 --
+-- Indexes for table `strand_room_details`
+--
+ALTER TABLE `strand_room_details`
+  ADD PRIMARY KEY (`room_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `abm_subjects`
+--
+ALTER TABLE `abm_subjects`
+  MODIFY `abm_Sub_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
 
 --
 -- AUTO_INCREMENT for table `grade_level`
@@ -297,13 +471,13 @@ ALTER TABLE `grade_level`
 -- AUTO_INCREMENT for table `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `instructor_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=924511617;
+  MODIFY `instructor_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=924511611;
 
 --
 -- AUTO_INCREMENT for table `instructor_startend_date`
 --
 ALTER TABLE `instructor_startend_date`
-  MODIFY `instructorDate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=924511620;
+  MODIFY `instructorDate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=924511611;
 
 --
 -- AUTO_INCREMENT for table `room_floors`
@@ -318,16 +492,16 @@ ALTER TABLE `room_status`
   MODIFY `status_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `stem`
---
-ALTER TABLE `stem`
-  MODIFY `room_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
-
---
 -- AUTO_INCREMENT for table `stem_subjects`
 --
 ALTER TABLE `stem_subjects`
-  MODIFY `Stem_Sub_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1009;
+  MODIFY `sub_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1009;
+
+--
+-- AUTO_INCREMENT for table `strand_room_details`
+--
+ALTER TABLE `strand_room_details`
+  MODIFY `room_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
