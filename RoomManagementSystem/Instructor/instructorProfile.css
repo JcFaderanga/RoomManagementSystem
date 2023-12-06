@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700&display=swap');
+:root{
+	--blue:#0e6dbd;
+	--dark-blue:#005586;
+  
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    
+}
+body{	
+	background: rgb(190, 210, 254, .13);
+}
+.container{
+	max-width: 1900px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+.header{
+	height: 70px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	font-size: 25px;
+}
+nav{
+	width: 100%;
+	height: 50px;
+	background: var(--blue);
+	margin: 0 auto;
+	/*border-radius: 10px;*/
+	color: white;
+}
+ nav ul{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+nav ul li{
+    margin: 10px;
+}
+nav ul li a{
+	color: white;
+}
+.profile{
+    margin: 20px auto;
+    width: 90%;
+    height: auto;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(0,0,0,.2);
+    background: rgb(190, 210, 254, .1);
+    
+
+}
+.inner-container {
+    display: flex;
+    height: 100%;
+}
+.profile-info{
+    width: 95%;
+	margin: 0 20px 0 20px;
+	display: flex;
+	align-items: center;
+}
+
+.content{
+    width: 97%;
+    height: auto;
+    margin:20px auto;
+    display: flex;
+}
+.leftSide{
+    width: 25%;
+    height: 100%;
+}
+.left{
+    
+    height: auto;
+}
+.upper-left{
+    width: 90%;
+    margin: 15px auto;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.2);
+    background: rgb(190, 210, 254, .2);
+    
+}
+.subject-list{
+    width: 90%;
+    margin: 30px auto;
+    height: 250px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.2);
+    background: rgb(190, 210, 254, .2);
+    
+}
+.right{
+    width: 75%;
+    height: auto;
+}
+.table-box{
+    width: 96%;
+    margin: 15px auto;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.3);
+  
+}
+.name-box{
+	width: 95%;
+	height: 50px;
+	margin: 20px 0 10px 20px;
+	display: flex;
+	align-items: center;
+    color: var(--dark-blue);
+    font-size: 28px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.info-box{
+    height: 100%;
+    
+}
+.profile .details{
+    display: grid;
+    margin: 10px 10px 20px 10px;
+    color: rgb(0,0,0,.7);
+    margin-right: 80px;
+}
+.details label{
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--dark-blue);
+}
+.upper-right{
+    width: 96%;
+    margin: 15px auto;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.2);
+    display:  flex;
+    align-items: center;
+}
+.filter_logo{
+	width: 140px;
+	height: 35px;
+	font-size: 15px;
+	border: 1px solid rgb(0,0,0,.2);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 5px;
+	background: var(--blue);
+    color: white;
+	margin: 0 20px;
+	cursor: pointer;
+	padding-left: 0 10px;
+}
+.filter_logo:hover{
+	box-shadow: rgba(3,102,214,0.3) 0 0 0 3px;
+	transform: scale(1.03);
+ }
+.input-box-instructor{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+select{
+	width: 120px;
+	height: 35px;
+	font-size: 15px;
+	border: 1px solid rgb(0,0,0,.2);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 5px;
+	margin: 0 20px;
+	cursor: pointer;
+	padding-left: 0 10px;
+  }
+  #subjectDropdown{
+    width: 230px;
+  }
+  input {
+    height: 32px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,.3);
+    outline: none;
+    box-shadow: rgba(225,228,232,0.5) 1px 0 0 inset;
+    padding: 10px;
+    margin: 0 20px 0 10px;
+}
+table{
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	border-radius: 5px;
+	font-size: 15px;
+  }
+  td, th{
+	border: none;
+	border-bottom: 1px solid rgb(0,0,0,.3);
+	height: 42px;
+	padding-left: 10px;
+	color: rgb(0,0,0,.8);
+  }
+  tr:hover{
+	background: rgb(190, 210, 254, .2);
+	transform: scale(1.004);
+	cursor: pointer;
+	transition: .05s ease;
+	box-shadow: 0 5px 2px -2px rgba(0,0,0,0.15);
+}
+
+td:hover{
+	background: rgb(190, 210, 254, .4);
+}
+#firstTr{
+	background: rgb(190, 210, 254, .3);
+	font-weight: bold;
+  }
